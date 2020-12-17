@@ -1,5 +1,2 @@
-# Redux BoilerPlate
-
-Two types of login authentication
-Those are 'Agent' and 'Admin' authentication
-
+# Dae HR Software
+React Redux Application
