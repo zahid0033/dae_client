@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Form,Button,Jumbotron} from "react-bootstrap";
 import {loginAgent} from "../../redux/actions/agentActions";
 import {bindActionCreators} from "redux";
+import {Link} from "react-router-dom";
 
 class AgentLogin extends Component {
     state = {
@@ -46,6 +47,8 @@ class AgentLogin extends Component {
                         Submit
                     </Button>
                 </Form>
+
+                <p className="mt-5">No Registered yet? Click here to <Link to={`/signup`} className="">signup</Link></p>
             </Jumbotron>
         )
     }
