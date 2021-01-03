@@ -13,7 +13,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Welcome to the Boilerplate Dashboard</h1>
+                <h1>Welcome to the Boilerplate Dashboard.</h1>
                 <Link to={"/agent"} >Agent Home (it's a Protected Route.. Cant access without login) </Link>
             </div>
         )
