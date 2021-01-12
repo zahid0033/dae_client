@@ -1,32 +1,33 @@
-const Award = () => {
+const Publication = () => {
     return (  
         <>
             <form>
+                <h1 className="text-center">Promotion Information</h1>
 
-                <label> Name </label>
+                <label>Publication Type</label>
                 <input
                     className="form-control"
                     type="text"
-                    name="name"
+                    name="pub_type"
                 /> 
 
-                <label> Ground </label>
+                <label> Title </label>
                 <input
                     className="form-control"
                     type="text"
-                    name="ground"
+                    name="title"
                 /> 
 
                 <label> Date </label>
                 <input
                     className="form-control"
                     type="date"
-                    name="award_date"
+                    name="pub_date"
                 /> 
-                
+
             </form>
         </>
     );
-};
+}
  
-export default Award;
+export default Publication;

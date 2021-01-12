@@ -2,7 +2,8 @@ const DisciplinaryAction = () => {
     return (  
         <>
             <form>
-            
+                <h1 className="text-center">Disciplinary Action Information</h1>
+
                 <label>GO Date</label>
                 <input
                     className="form-control"

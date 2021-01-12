@@ -1,6 +1,7 @@
 const Posting = () => {
     return (  
         <form>
+            <h1 className="text-center">Posting Information</h1>
 
             <label> Designation </label>
             <input

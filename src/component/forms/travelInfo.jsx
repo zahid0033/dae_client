@@ -2,6 +2,9 @@ const Travel = () => {
     return (  
         <>
             <form>
+
+                <h1 className="text-center">Foreign Travel Information</h1>
+
                 <label> Country </label>
                 <input
                     className="form-control"

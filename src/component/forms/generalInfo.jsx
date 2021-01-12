@@ -4,6 +4,8 @@ const GeneralInfo = () => {
             <div className="container">
                 <form>
 
+                    <h1 className="text-center">General Information</h1>
+
                     <label>Father's Name</label>
                     <input
                         className="form-control"

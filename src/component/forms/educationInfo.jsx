@@ -2,6 +2,7 @@ const Education = () => {
     return (  
         <>
             <form>
+            <h1 className="text-center">Education Information</h1>
 
             <label>Degree</label>
             <input

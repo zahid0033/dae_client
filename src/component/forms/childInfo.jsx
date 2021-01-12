@@ -2,6 +2,7 @@ const Child = () => {
     return (  
         <>
             <form>
+                <h1 className="text-center">Child Information</h1>
 
                 <label>Name</label>
                 <input

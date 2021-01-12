@@ -2,6 +2,7 @@ const Promotion = () => {
     return (  
         <>
             <form>
+                <h1 className="text-center">Promotion Information</h1>
 
                 <label> Date of Promotion </label>
                 <input

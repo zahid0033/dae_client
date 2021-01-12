@@ -2,7 +2,7 @@ const Address = () => {
     return ( 
         <>
             <form>
-            
+                <h1 className="text-center">Address Information</h1>
                 <h3>Permanent Address</h3>
 
                 <label>District</label>

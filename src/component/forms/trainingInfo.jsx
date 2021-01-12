@@ -2,6 +2,7 @@ const Training = () => {
     return (  
         <>
             <form>
+                <h1 className="text-center">Training Information</h1>            
 
                 <label>Training Type</label>
                 <input

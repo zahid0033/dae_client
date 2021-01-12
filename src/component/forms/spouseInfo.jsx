@@ -2,6 +2,7 @@ const SpouseInfo = () => {
     return (  
         <>
             <form>
+                <h1 className="text-center">Spouse Information</h1>
 
                 <label> Name </label>
                 <input
