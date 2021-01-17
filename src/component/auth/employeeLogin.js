@@ -1,22 +1,23 @@
 import React,{Component} from "react";
 import {connect} from "react-redux";
 import {Form,Button,Jumbotron} from "react-bootstrap";
-import {loginAdmin} from "../../redux/actions/adminActions";
+import {loginEmployee} from "../../redux/actions/employeeActions";
 import {bindActionCreators} from "redux";
+import {Link} from "react-router-dom";
 
-class AdminLogin extends Component {
+class EmployeeLogin extends Component {
     state = {
-        email: "",
+        phoneNumber: "",
         password : ""
     }
 
     onSubmit = (e) => {
         e.preventDefault();
-        const adminData = {
-            email: this.state.email,
+        const userData = {
+            phoneNumber: this.state.phoneNumber,
             password: this.state.password
         }
-        this.props.loginAdmin(adminData,this.props.history)
+        this.props.loginEmployee(userData,this.props.history)
     }
 
     onChange = e => {
@@ -27,25 +28,28 @@ class AdminLogin extends Component {
     }
 
     render() {
+        console.log("errors",this.props.errors)
         return (
             <Jumbotron>
                 {this.props.errors}
-                <h2 className="text-center">Admin Login</h2>
+                <h2 className="text-center">Agent Login</h2>
                 <Form onSubmit={this.onSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.onChange} />
+                    <Form.Group>
+                        <Form.Label>Phone Number</Form.Label>
+                        <Form.Control type="tel" name="phoneNumber" placeholder="Enter Phone Number" onChange={this.onChange} />
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group>
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Enter Password" name="password" onChange={this.onChange} />
+                        <Form.Control type="password" name="password" placeholder="Password" onChange={this.onChange}/>
                     </Form.Group>
 
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
+
+                <p className="mt-5">No Registered yet? Click here to <Link to={`/signup`} className="">signup</Link></p>
             </Jumbotron>
         )
     }
@@ -56,10 +60,11 @@ const mapStateToProps = state => ({
     errors: state.errors
 })
 
+
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        loginAdmin
+        loginEmployee
     },dispatch)
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AdminLogin)
+export default connect(mapStateToProps,mapDispatchToProps)(EmployeeLogin)

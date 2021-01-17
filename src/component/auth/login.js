@@ -3,8 +3,7 @@ import {connect} from "react-redux";
 import * as authActions from '../../redux/actions/authActions'
 import {Link} from "react-router-dom";
 import {Tabs,Tab} from "react-bootstrap"
-import AgentLogin from "./agentLogin";
-import AdminLogin from "./adminLogin";
+import AgentLogin from "./employeeLogin";
 
 class Login extends Component {
     componentDidMount() {
@@ -20,7 +19,7 @@ class Login extends Component {
                 <br/>
                 <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
                     <Tab eventKey="home" title="Admin">
-                        <AdminLogin {...this.props}/>
+                        {/*<AdminLogin {...this.props}/>*/}
                     </Tab>
                     <Tab eventKey="profile" title="Agent">
                         <AgentLogin {...this.props}/>

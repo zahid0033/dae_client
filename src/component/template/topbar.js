@@ -18,17 +18,17 @@ class Topbar extends Component {
                         <Navbar.Brand as={Link} to="/">
                             <img
                                 alt=""
-                                src="/logo.svg"
+                                src="http://dae.dhaka.gov.bd/themes/responsive_npf/img/logo.png"
                                 width="30"
                                 height="30"
                                 className="d-inline-block align-top"
                             />{' '}
-                            MGCL
+                            Department of Agricultural Extention                          
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav" >
                             <Nav className="ml-auto">
-                                <Nav.Link as={Link} to="/granite/list">Granite List</Nav.Link>
+                                {/* <Nav.Link as={Link} to="/granite/list">Granite List</Nav.Link> */}
                                 {
                                     this.props.auth.isAuthenticated ?
                                         (
