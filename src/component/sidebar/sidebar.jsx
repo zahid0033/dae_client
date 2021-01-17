@@ -8,7 +8,7 @@ const style = {
 const Sidebar = () => {
     return (  
         <>
-            <div className="d-flex" id="wrapper">
+            <div className="" id="wrapper">
 
                 <div className="bg-light border-right" id="sidebar-wrapper">
                     <h5>Employee Form</h5>

@@ -16,13 +16,13 @@ class Topbar extends Component {
                 <Navbar bg="dark" expand="lg" variant="dark">
                     <div className="container">
                         <Navbar.Brand as={Link} to="/">
-                            {/* <img
+                            <img
                                 alt=""
-                                src="/logo.svg"
+                                src="http://dae.dhaka.gov.bd/themes/responsive_npf/img/logo.png"
                                 width="30"
                                 height="30"
                                 className="d-inline-block align-top"
-                            />{' '} */}
+                            />{' '}
                             Department of Agricultural Extention                          
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
