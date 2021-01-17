@@ -118,6 +118,7 @@ class GeneralInfo extends Component {
         const {fatherName,motherName,district,sex,maritalStatus,religion,tinNo,batch,rank,division,office,designation} = this.state
         console.log(this.state)
         const generalInfo = {
+            employee: this.props.auth.user.id,
             fatherName,
             motherName,
             district,
