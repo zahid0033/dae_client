@@ -1,5 +1,6 @@
 import {Button} from "react-bootstrap";
 import React,{Component} from "react";
+import {connect} from "react-redux";
 import axios from 'axios'
 
 class GeneralInfo extends Component {
@@ -135,6 +136,7 @@ class GeneralInfo extends Component {
                 this.setState({
                     generalInfos : res.data
                 })
+                alert("successfully added")
             })
             .catch(err => {
                 console.log(err)
@@ -142,6 +144,7 @@ class GeneralInfo extends Component {
     }
 
     render() {
+        console.log("gen info",this.props.auth)
         return (
             <>
                 <div className="container">
@@ -282,5 +285,10 @@ class GeneralInfo extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+})
  
-export default GeneralInfo;
+export default connect(mapStateToProps,null)(GeneralInfo) ;
