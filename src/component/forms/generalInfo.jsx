@@ -116,7 +116,9 @@ class GeneralInfo extends Component {
     onSubmit = e => {
         e.preventDefault();
         const {fatherName,motherName,district,sex,maritalStatus,religion,tinNo,batch,rank,division,office,designation} = this.state
+
         console.log(this.state)
+
         const generalInfo = {
             employee: this.props.auth.user.id,
             fatherName,
@@ -132,6 +134,7 @@ class GeneralInfo extends Component {
             office,
             designation
         }
+        
         axios.post("/api/dbForms/addGeneralInfo", generalInfo)
             .then(res => {
                 this.setState({

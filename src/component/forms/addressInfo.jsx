@@ -26,7 +26,6 @@ class AddressInfo extends Component{
         this.fetchDistrict();
         this.fetchUpazilla();
         this.fetchPostOffice();
-
     }
 
     fetchDistrict = async () => {
