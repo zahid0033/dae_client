@@ -100,21 +100,21 @@ class GeneralInfo extends Component {
             .then(res => {
                 this.setState({
                     designations:  res.data.data
-                })
+                });
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-    onChangeHandler = e => {
+    onChangeHandler = change => {
         this.setState({
-            [e.target.name] : e.target.value
+            [change.target.name] : change.target.value
         })
     }
 
-    onSubmit = e => {
-        e.preventDefault();
+    onSubmit = submit => {
+        submit.preventDefault();
         const {fatherName,motherName,district,sex,maritalStatus,religion,tinNo,batch,rank,division,office,designation} = this.state
 
         console.log(this.state)
@@ -144,7 +144,7 @@ class GeneralInfo extends Component {
             })
             .catch(err => {
                 console.log(err)
-            } )
+            })
     }
 
     render() {
@@ -262,7 +262,7 @@ class GeneralInfo extends Component {
                                 {
                                     this.state.offices.length > 0 && this.state.offices.map( (office,key) => (
                                         <option key={key} value={office._id}>{office.officeName}</option>
-                                    ) )
+                                    ))
                                 }
                             </select>
                         </div>
@@ -293,6 +293,6 @@ class GeneralInfo extends Component {
 const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
-})
+});
  
 export default connect(mapStateToProps,null)(GeneralInfo) ;
