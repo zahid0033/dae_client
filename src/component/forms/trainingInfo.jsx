@@ -1,68 +1,148 @@
-const Training = () => {
-    return (  
-        <>
-            <form>
-                <h1 className="text-center">Training Information</h1>            
+import {Button} from "react-bootstrap";
+import React,{Component} from "react";
+import {connect} from "react-redux";
+import axios from 'axios';
 
-                <label>Training Type</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    name="training_type"
-                /> 
+class TrainingInfo extends Component {
+    state = {
+        triningType : "",
+        trainingTitle : "",
+        instituteName : "",
+        Country : "",
+        grade : "",
+        position : "",
+        startingDate : "",
+        endingDate : ""
+    };
 
-                <label>Training Title</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    name="training_title"
-                /> 
+    onChangeHandler = change => {
+        this.setState({
+            [change.target.name] : change.target.value
+        });
+    };
 
-                <label>Institute Name</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    name="institute"
-                /> 
+    onSubmit = submit => {
+        submit.preventDefault();
+        const {
+            trainingType,
+            trainingTitle,
+            instituteName,
+            country,
+            grade,
+            position,
+            startingDate,
+            endingDate
+        } = this.state;
 
-                <label>Country</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    name="country"
-                /> 
+        const trainingInfo = {
+            employee : this.props.auth.user.id,
+            trainingType,
+            trainingTitle,
+            instituteName,
+            country,
+            grade,
+            position,
+            startingDate,
+            endingDate
+        }; 
 
-                <label>Grade</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    name="grade"
-                /> 
+        axios.post("/api/dbForms/addTrainingInfo", trainingInfo)
+            .then(res => {
+                this.setState({
+                    trainingInfos : res.data
+                })
+                alert("successfully added")
+            })
+            .catch(err => {
+                console.log(err)
+            });
+    }
 
-                <label>Position</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    name="position"
-                />
+    render() {
+        return (
+            <>
+                <div className="container">
+                    <form onSubmit={this.onSubmit}>
+                        <h1 className="text-center">Training Information</h1>            
 
-                <label>Starting Date</label>
-                <input
-                    className="form-control"
-                    type="date"
-                    name="s_date"
-                />     
+                        <label>Training Type</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="trainingType"
+                            onChange={this.onChangeHandler}
+                        /> 
 
-                <label>Finishing Date</label>
-                <input
-                    className="form-control"
-                    type="date"
-                    name="f_date"
-                /> 
+                        <label>Training Title</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="trainingTitle"
+                            onChange={this.onChangeHandler}
+                        /> 
 
-            </form>
-        </>
-    );
+                        <label>Institute Name</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="instituteName"
+                            onChange={this.onChangeHandler}
+                        /> 
+
+                        <label>Country</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="country"
+                            onChange={this.onChangeHandler}
+                        /> 
+
+                        <label>Grade</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="grade"
+                            onChange={this.onChangeHandler}
+                        /> 
+
+                        <label>Position</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="position"
+                            onChange={this.onChangeHandler}
+                        />
+
+                        <label>Starting Date</label>
+                        <input
+                            className="form-control"
+                            type="date"
+                            name="startingDate"
+                            onChange={this.onChangeHandler}
+                        />     
+
+                        <label>Ending Date</label>
+                        <input
+                            className="form-control"
+                            type="date"
+                            name="endingDate"
+                            onChange={this.onChangeHandler}
+                        /> 
+
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </form>
+                </div>
+            </>
+        )
+    }
 }
+
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+});
  
-export default Training;
+export default connect(mapStateToProps,null)(TrainingInfo);

@@ -1,7 +1,7 @@
 import {Button} from "react-bootstrap";
 import React,{Component} from "react";
 import {connect} from "react-redux";
-import axios from 'axios'
+import axios from 'axios';
 
 class GeneralInfo extends Component {
     state = {
@@ -144,7 +144,7 @@ class GeneralInfo extends Component {
             })
             .catch(err => {
                 console.log(err)
-            })
+            });
     }
 
     render() {
@@ -295,4 +295,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
  
-export default connect(mapStateToProps,null)(GeneralInfo) ;
+export default connect(mapStateToProps,null)(GeneralInfo);
